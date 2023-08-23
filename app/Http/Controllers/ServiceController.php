@@ -12,7 +12,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $service = Service::all();
+        return response()->json($service);
     }
 
     /**
@@ -28,7 +29,16 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $service = new Service();
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->price = $request->price;
+        $service->save();
+        $data = [
+            'message' => 'Servicio creado correctamente',
+            'service' => $service
+        ];
+        return response()->json($data);
     }
 
     /**
@@ -36,7 +46,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return response()->json($service);
     }
 
     /**
@@ -52,7 +62,15 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->price = $request->price;
+        $service->save();
+        $data = [
+            'message' => 'Servicio actualizado correctamente',
+            'service' => $service
+        ];
+        return response()->json($data);
     }
 
     /**
@@ -60,6 +78,22 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        $data = [
+            'message' => 'Servicio eliminado correctamente',
+            'service' => $service
+        ];
+        return response()->json($data);
+    }
+
+    public function clients(Request $request)
+    {
+        $service = Service::find($request->service_id);
+        $clients = $service->clients;
+        $data = [
+            'message' => 'Clients of service',
+            'clients' => $clients
+        ];
+        return response()->json($data);
     }
 }
