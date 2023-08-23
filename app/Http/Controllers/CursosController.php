@@ -58,7 +58,7 @@ class CursosController extends Controller
      */
     public function edit(Cursos $curso)
     {
-        //
+        return response()->json($curso);
     }
 
     /**

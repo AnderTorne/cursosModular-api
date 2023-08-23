@@ -41,5 +41,6 @@ Route::post('services/clients', 'App\Http\Controllers\ServiceController@clients'
 Route::get('/cursos', 'App\Http\Controllers\CursosController@index');
 Route::post('/cursos', 'App\Http\Controllers\CursosController@store');
 Route::get('/cursos/{curso}', 'App\Http\Controllers\CursosController@show');
+Route::get('/cursos/edit/{curso}', 'App\Http\Controllers\CursosController@edit');
 Route::put('/cursos/{curso}', 'App\Http\Controllers\CursosController@update');
 Route::delete('/cursos/{curso}', 'App\Http\Controllers\CursosController@destroy');
