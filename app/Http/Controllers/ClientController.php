@@ -66,6 +66,9 @@ class ClientController extends Controller
             'services' => $client->services
         ];
         return response()->json($data);
+
+        // $client->services;
+        // return response()->json($client);
     }
 
     /**
