@@ -44,3 +44,6 @@ Route::get('/cursos/{curso}', 'App\Http\Controllers\CursosController@show');
 Route::get('/cursos/edit/{curso}', 'App\Http\Controllers\CursosController@edit');
 Route::put('/cursos/{curso}', 'App\Http\Controllers\CursosController@update');
 Route::delete('/cursos/{curso}', 'App\Http\Controllers\CursosController@destroy');
+
+//SubCursos
+Route::get('/cursos/{curso}/subcurso', 'App\Http\Controllers\SubCursoController@update');

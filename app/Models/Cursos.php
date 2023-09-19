@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Cursos extends Model
 {
     use HasFactory;
+    //relacion uno a muchos
+    public function subCursos()
+    {
+        // return $this->hasMany(SubCursos::class);
+        return $this->hasMany('App\Models\subCurso');
+    }
 }

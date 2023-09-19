@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Cursos;
+use App\Models\subCurso;
 use Illuminate\Http\Request;
 
 class CursosController extends Controller
@@ -16,6 +17,17 @@ class CursosController extends Controller
         $curso = Cursos::all();
         return response()->json($curso);
     }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function indexSubCurso()
+    {
+        $curso = subCurso::all();
+        return response()->json($curso);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +62,10 @@ class CursosController extends Controller
      */
     public function show(Cursos $curso)
     {
-        return response()->json($curso);
+        $subcursos = subCurso::where('curso_id', $curso->id)->get();
+
+        return response()->json([$curso, $subcursos]);
+        // return response()->json($curso);
     }
 
     /**
