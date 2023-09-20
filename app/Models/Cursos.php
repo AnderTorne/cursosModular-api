@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Cursos extends Model
 {
     use HasFactory;
+
+    // protected $table = 'cursos';
+    // protected $fillable = [
+    //     'titulo',
+    //     'descripcion',
+    //     'imagen',
+    //     'activo'
+    // ];
     //relacion uno a muchos
     public function subCursos()
     {

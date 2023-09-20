@@ -9,6 +9,16 @@ class subCurso extends Model
 {
     use HasFactory;
 
+    // protected $table = 'sub_cursos';
+    // protected $fillable = [
+    //     'subtitulo',
+    //     'descripcion',
+    //     'imagen',
+    //     'video',
+    //     'curso_id',
+    //     'activo'
+    // ];
+
     //relacion uno a muchos inversa
     public function curso()
     {

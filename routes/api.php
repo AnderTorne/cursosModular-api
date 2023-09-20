@@ -46,4 +46,5 @@ Route::put('/cursos/{curso}', 'App\Http\Controllers\CursosController@update');
 Route::delete('/cursos/{curso}', 'App\Http\Controllers\CursosController@destroy');
 
 //SubCursos
-Route::get('/cursos/{curso}/subcurso', 'App\Http\Controllers\SubCursoController@update');
+Route::get('/cursos/{curso}/subcurso', 'App\Http\Controllers\SubCursoController@index');
+Route::post('/cursos/subcurso', 'App\Http\Controllers\SubCursoController@store');
