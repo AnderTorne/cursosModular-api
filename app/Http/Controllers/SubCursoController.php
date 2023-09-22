@@ -10,14 +10,21 @@ class SubCursoController extends Controller
 {
     public function index()
     {
-        $subcurso = subCurso::all();
-        // return $subcurso;
+        $subcurso = subCurso::all(); 
         return response()->json($subcurso);
+        // $subcurso = subCurso::all();
+        // return response()->json($subcurso);
     }
 
-    public function show(subCurso $subcurso)
+    public function show($id)
     {
-        return response()->json($subcurso);
+        $subcurso= subCurso::find($id);
+        $curso = Cursos::find($subcurso->curso_id);
+        $subcursos = subCurso::where('curso_id', $curso->id)->get();
+        return response()->json([$subcurso,$curso,$subcursos]);
+        // return response()->json($subcurso);
+        // $subcursos = subCurso::where('curso_id', $curso->id)->get();
+        // return response()->json($curso);
     }
     public function create()
     {
