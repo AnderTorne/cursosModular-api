@@ -61,8 +61,24 @@ class CursosController extends Controller
      */
     public function show(Cursos $curso)
     {
+        $creado = subCurso::where('curso_id', $curso->id)->get();
+        if ($creado->isEmpty()) {
+            $subcurso = new subCurso();
+            $subcurso->subtitulo = $curso->nombre_curso;
+            $subcurso->descripcion = $curso->descripcion_curso;
+            $subcurso->imagen = $curso->imagen_curso;
+            $subcurso->video = $curso->url_video_curso;
+            $subcurso->curso_id = $curso->id;
+            $subcurso->save();
+            $data = [
+                'message' => 'SubCurso creado correctamente',
+                'subcurso' => $subcurso
+            ];
+            $subcursos = subCurso::where('curso_id', $curso->id)->get();
+            return response()->json([$curso, $subcursos,$data]);
+        }
+        
         $subcursos = subCurso::where('curso_id', $curso->id)->get();
-
         return response()->json([$curso, $subcursos]);
         // return response()->json($curso);
     }
