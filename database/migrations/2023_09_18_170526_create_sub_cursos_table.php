@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('curso_id')->nullable();
             $table->foreign('curso_id')->references('id')->on('cursos')
             ->onDelete('set null');//llave foranea, haciendo referencia al campo id de la tabla curso
-            $table->tinyInteger('activo')->default('0');
+            // $table->tinyInteger('activo')->default('0');
             $table->timestamps();
         });
     }
