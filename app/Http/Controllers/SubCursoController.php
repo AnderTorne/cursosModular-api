@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cursos;
 use App\Models\subCurso;
+use App\Models\Cursos;
 use Illuminate\Http\Request;
 
 class SubCursoController extends Controller
@@ -47,9 +47,10 @@ class SubCursoController extends Controller
         return response()->json($data);
     }
 
-    public function edit(subCurso $subCurso)
+    public function edit($id)
     {
-        return response()->json($subCurso);
+        $data = subCurso::find($id);
+        return response()->json($data);
     }
 
     public function update(Request $request, subCurso $subcurso)

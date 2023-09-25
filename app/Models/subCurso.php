@@ -9,7 +9,7 @@ class subCurso extends Model
 {
     use HasFactory;
 
-    // protected $table = 'sub_cursos';
+    protected $table = 'sub_cursos';
     // protected $fillable = [
     //     'subtitulo',
     //     'descripcion',
