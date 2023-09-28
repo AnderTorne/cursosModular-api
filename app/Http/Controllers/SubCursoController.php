@@ -61,9 +61,11 @@ class SubCursoController extends Controller
         $subcurso->video = $request->video;
         $subcurso->curso_id = $request->curso_id;
         $subcurso->save();
+        $id = $subcurso->id;
         $data = [
             'message' => 'SubCurso creado correctamente',
-            'subcurso' => $subcurso
+            'subcurso' => $subcurso,
+            'id' => $id
         ];
         return response()->json($data);
     }
