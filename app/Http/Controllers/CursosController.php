@@ -75,11 +75,13 @@ class CursosController extends Controller
                 'subcurso' => $subcurso
             ];
             $subcursos = subCurso::where('curso_id', $curso->id)->get();
-            return response()->json([$curso, $subcursos,$data]);
+            // return response()->json([$curso, $subcursos,$data]);
+            
+            return response()->json([$subcurso, $curso, $subcursos]);
         }
-        
+        $subcurso = subCurso::where('curso_id', $curso->id)->first();
         $subcursos = subCurso::where('curso_id', $curso->id)->get();
-        return response()->json([$curso, $subcursos]);
+        return response()->json([$subcurso, $curso, $subcursos]);
         // return response()->json($curso);
     }
 

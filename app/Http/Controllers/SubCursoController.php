@@ -22,10 +22,31 @@ class SubCursoController extends Controller
         $curso = Cursos::find($subcurso->curso_id);
         $subcursos = subCurso::where('curso_id', $curso->id)->get();
         return response()->json([$subcurso,$curso,$subcursos]);
-        // return response()->json($subcurso);
-        // $subcursos = subCurso::where('curso_id', $curso->id)->get();
-        // return response()->json($curso);
     }
+    // public function show($id)
+    // {
+    //     $creado = subCurso::find($id)->get();
+    //     if($creado->isEmpty()){
+    //         $subcurso = new subCurso();
+    //         $curso = Cursos::find($id);
+    //         $subcurso->subtitulo = $curso->nombre_curso;
+    //         $subcurso->descripcion = $curso->descripcion_curso;
+    //         $subcurso->imagen = $curso->imagen_curso;
+    //         $subcurso->video = $curso->url_video_curso;
+    //         $subcurso->curso_id = $curso->id;
+    //         $subcurso->save();
+    //         $data = [
+    //             'message' => 'SubCurso creado correctamente',
+    //             'subcurso' => $subcurso
+    //         ];
+    //         $subcursos = subCurso::where('curso_id', $curso->id)->get();
+    //         return response()->json([$subcurso,$curso,$subcursos,$data]);
+    //     }
+    //     $subcurso = subCurso::find($id);
+    //     $curso = Cursos::find($subcurso->curso_id);
+    //     $subcursos = subCurso::where('curso_id', $curso->id)->get();
+    //     return response()->json([$subcurso,$curso,$subcursos]);
+    // }
     public function create()
     {
         //
