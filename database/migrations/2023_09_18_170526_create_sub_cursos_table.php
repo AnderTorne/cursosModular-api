@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sub_cursos', function (Blueprint $table) {
             $table->id();
             $table->string('subtitulo');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->string('imagen');
             $table->string('video');
             $table->unsignedBigInteger('curso_id')->nullable();
